@@ -31,7 +31,7 @@
         margin-top: 12px;
         font-weight: bold;
       }
-      input[type="text"], input[type="number"] {
+      input, select {
         width: 100%;
         padding: 8px;
         margin-top: 4px;
@@ -78,23 +78,83 @@
 
       <h2>Single Record Input</h2>
       <form method="post">
-        {% for f in features %}
-          <label>{{ f }}:
-            <input type="text" name="{{ f }}" placeholder="Enter numeric value for {{ f }}" />
-          </label>
-        {% endfor %}
+        <label>Age:
+          <input type="number" name="Age" />
+        </label>
+
+        <label>Sex:
+          <select name="Sex">
+            <option value="">--Select--</option>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </label>
+
+        <label>Chest pain type:
+          <select name="Chest pain type">
+            <option value="">--Select--</option>
+            <option>Typical Angina</option>
+            <option>Atypical Angina</option>
+            <option>Non-anginal</option>
+            <option>Asymptomatic</option>
+          </select>
+        </label>
+
+        <label>BP:
+          <input type="number" name="BP" />
+        </label>
+
+        <label>Cholesterol:
+          <input type="number" name="Cholesterol" />
+        </label>
+
+        <label>FBS over 120:
+          <input type="number" name="FBS over 120" />
+        </label>
+
+        <label>EKG results:
+          <input type="number" name="EKG results" />
+        </label>
+
+        <label>Max HR:
+          <input type="number" name="Max HR" />
+        </label>
+
+        <label>Exercise angina:
+          <select name="Exercise angina">
+            <option value="">--Select--</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </label>
+
+        <label>ST depression:
+          <input type="number" step="0.1" name="ST depression" />
+        </label>
+
+        <label>Slope of ST:
+          <input type="number" name="Slope of ST" />
+        </label>
+
+        <label>Number of vessels fluro:
+          <input type="number" name="Number of vessels fluro" />
+        </label>
+
+        <label>Thallium:
+          <select name="Thallium">
+            <option value="">--Select--</option>
+            <option>Normal</option>
+            <option>Fixed Defect</option>
+            <option>Reversible Defect</option>
+          </select>
+        </label>
+
         <button type="submit">Predict</button>
       </form>
 
       <hr />
 
       <h2>Or Upload CSV</h2>
-      <p>CSV must contain the following columns:</p>
-      <ul>
-        {% for f in features %}
-          <li>{{ f }}</li>
-        {% endfor %}
-      </ul>
       <form method="post" enctype="multipart/form-data">
         <input type="file" name="csvfile" accept=".csv" />
         <button type="submit">Upload & Predict</button>

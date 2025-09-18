@@ -1,0 +1,90 @@
+<!-- templates/output.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prediction Output - Heart Disease</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background: #f2f2f2;
+      }
+      .container {
+        max-width: 800px;
+        margin: auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      }
+      h1 {
+        color: #c0392b;
+        text-align: center;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th, td {
+        padding: 12px;
+        border: 1px solid #ccc;
+        text-align: center;
+      }
+      th {
+        background: #f4f4f4;
+      }
+      .label-absence {
+        color: green;
+        font-weight: bold;
+      }
+      .label-presence {
+        color: red;
+        font-weight: bold;
+      }
+      a {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background: #2980b9;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 6px;
+      }
+      a:hover {
+        background: #1f6391;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Prediction Results</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Prediction (0/1)</th>
+            <th>Label</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for r in results %}
+          <tr>
+            <td>{{ r.index }}</td>
+            <td>{{ r.prediction }}</td>
+            <td class="{{ 'label-presence' if r.prediction == 1 else 'label-absence' }}">
+              {{ r.label }}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <a href="/input">Back to Input</a>
+      <a href="/">Home</a>
+    </div>
+  </body>
+</html>

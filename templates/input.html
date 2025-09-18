@@ -1,0 +1,106 @@
+<!-- templates/input.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Input - Heart Disease Prediction</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background: #f2f2f2;
+      }
+      .container {
+        max-width: 800px;
+        margin: auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      }
+      h1 {
+        color: #c0392b;
+        text-align: center;
+      }
+      form {
+        margin-top: 20px;
+      }
+      label {
+        display: block;
+        margin-top: 12px;
+        font-weight: bold;
+      }
+      input[type="text"], input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        margin-top: 4px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+      button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background: #2980b9;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #1f6391;
+      }
+      .error {
+        color: red;
+        margin-bottom: 15px;
+      }
+      hr {
+        margin: 30px 0;
+      }
+      a {
+        display: inline-block;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #2980b9;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Input Data</h1>
+
+      {% if error %}
+        <div class="error">{{ error }}</div>
+      {% endif %}
+
+      <h2>Single Record Input</h2>
+      <form method="post">
+        {% for f in features %}
+          <label>{{ f }}:
+            <input type="text" name="{{ f }}" placeholder="Enter numeric value for {{ f }}" />
+          </label>
+        {% endfor %}
+        <button type="submit">Predict</button>
+      </form>
+
+      <hr />
+
+      <h2>Or Upload CSV</h2>
+      <p>CSV must contain the following columns:</p>
+      <ul>
+        {% for f in features %}
+          <li>{{ f }}</li>
+        {% endfor %}
+      </ul>
+      <form method="post" enctype="multipart/form-data">
+        <input type="file" name="csvfile" accept=".csv" />
+        <button type="submit">Upload & Predict</button>
+      </form>
+
+      <p><a href="/">Back to Welcome</a></p>
+    </div>
+  </body>
+</html>

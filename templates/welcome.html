@@ -1,0 +1,53 @@
+<!-- templates/welcome.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Welcome - Heart Disease Prediction</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background: #f2f2f2;
+      }
+      .container {
+        max-width: 600px;
+        margin: auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        text-align: center;
+      }
+      h1 {
+        color: #c0392b;
+      }
+      a {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background: #2980b9;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 6px;
+      }
+      a:hover {
+        background: #1f6391;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to Heart Disease Prediction</h1>
+      <p>
+        This web application predicts the <strong>presence (1)</strong> or <strong>absence (0)</strong> of heart disease 
+        based on your medical input data.
+      </p>
+      <p>
+        Click below to get started with entering your details or uploading your dataset.
+      </p>
+      <a href="/input">Go to Input Page</a>
+    </div>
+  </body>
+</html>
